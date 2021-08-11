@@ -6,12 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TimePicker
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/bt"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/t1"
+        android:layout_marginTop="25dp"
         android:text="알림 띄우기"
         tools:layout_editor_absoluteX="132dp"
         tools:layout_editor_absoluteY="114dp" />
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

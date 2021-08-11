@@ -11,13 +11,22 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class MainActivity extends AppCompatActivity {
+    long mNow;
+    Date mDate;
+    SimpleDateFormat mFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    TextView text;
+
     Button bt;
     NotificationManager manager;
     NotificationCompat.Builder builder;
@@ -27,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //system time
+        text=findViewById(R.id.t1);
+        text.setText(getTime());
+
+        //notice
+        //setContentView(R.layout.activity_main);
         bt = findViewById(R.id.bt);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
                 showNoti();
             }
         });
+    }
+
+    private String getTime(){
+        mNow = System.currentTimeMillis();
+        mDate = new Date(mNow);
+        return mFormat.format(mDate);
     }
     public void showNoti(){
         builder = null;
@@ -58,5 +80,4 @@ public class MainActivity extends AppCompatActivity {
         // 알림창 실행
         manager.notify(1,notification);
     }
-
 }
