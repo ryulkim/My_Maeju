@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
@@ -27,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
     SimpleDateFormat mFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     TextView text;
 
+    TimePicker tPicker;
+    Button reserve;
+
+
     Button bt;
     NotificationManager manager;
     NotificationCompat.Builder builder;
@@ -36,10 +42,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("시간 예약");
 
         //system time
         text=findViewById(R.id.t1);
         text.setText(getTime());
+
+        tPicker=findViewById(R.id.timePicker);
+        reserve=findViewById(R.id.reserve);
 
         //notice
         //setContentView(R.layout.activity_main);
@@ -50,7 +60,19 @@ public class MainActivity extends AppCompatActivity {
                 showNoti();
             }
         });
+
+        reserve.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Toast.makeText(MainActivity.this,
+                        Integer.toString(tPicker.getCurrentHour())+"시"+
+                        Integer.toString(tPicker.getCurrentMinute())+"분 저장됨"
+                ,Toast.LENGTH_LONG).show();
+                
+            }
+        });
     }
+
+
 
     private String getTime(){
         mNow = System.currentTimeMillis();

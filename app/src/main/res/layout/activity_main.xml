@@ -13,8 +13,10 @@
         android:text="TextView" />
 
     <TimePicker
+        android:id="@+id/timePicker"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp" />
 
     <Button
         android:id="@+id/bt"
@@ -25,6 +27,14 @@
         android:text="알림 띄우기"
         tools:layout_editor_absoluteX="132dp"
         tools:layout_editor_absoluteY="114dp" />
+
+    <Button
+        android:id="@+id/reserve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="600dp"
+        android:text="예약하기"
+        />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
