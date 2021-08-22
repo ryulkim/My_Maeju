@@ -31,21 +31,6 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 
-public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+public class QuizeReserve extends AppCompatActivity {
 
-    public void attendReserve(View v){
-        Intent intent1 = new Intent(getApplicationContext(), AttendReserve.class);
-        startActivity(intent1);
-    }
-
-    public void quizReserve(View v){
-        Intent intent1 = new Intent(getApplicationContext(), QuizeReserve.class);
-        startActivity(intent1);
-    }
 }
-

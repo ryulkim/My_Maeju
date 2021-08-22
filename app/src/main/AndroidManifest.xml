@@ -23,6 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AttendReserve"/>
+
 
         <receiver android:name=".DeviceBootReceiver"
             android:enabled="false">
@@ -30,8 +32,15 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".DeviceBootReceiver_attend"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
         <receiver android:name=".AlarmReceiver" />
+        <receiver android:name=".AlarmReceiver_attend" />
     </application>
 
 </manifest>

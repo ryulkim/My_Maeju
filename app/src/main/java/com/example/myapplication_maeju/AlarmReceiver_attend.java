@@ -16,16 +16,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-
 import static android.content.Context.MODE_PRIVATE;
 
-public class AlarmReceiver extends BroadcastReceiver {
+public class AlarmReceiver_attend extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        Intent notificationIntent = new Intent(context, MainActivity.class);
+        Intent notificationIntent = new Intent(context, AttendReserve.class);
 
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -43,7 +42,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             builder.setSmallIcon(R.drawable.heart); //mipmap 사용시 Oreo 이상에서 시스템 UI 에러남
 
 
-            String channelName ="매일 알람 채널";
+            String channelName ="출석 알람 채널";
             String description = "매일 정해진 시간에 알람합니다.";
             int importance = NotificationManager.IMPORTANCE_HIGH; //소리와 알림메시지를 같이 보여줌
 
@@ -62,8 +61,8 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setWhen(System.currentTimeMillis())
 
                 .setTicker("{Time to watch some cool stuff!}")
-                .setContentTitle("매주 1과제 알림")
-                .setContentText("알림입니다아아아아ㅏ~~~")
+                .setContentTitle("매주 1과제 출석 알림")
+                .setContentText("매과제 출석하세요오오오오드")
                 .setContentInfo("INFO")
                 .setContentIntent(pendingI);
 
@@ -74,7 +73,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
             Calendar nextNotifyTime = Calendar.getInstance();
 
-            // 내일 같은 시간으로 알람시간 결정
+            // 일주일 뒤 같은 시간으로 알람시간 결정
             nextNotifyTime.add(Calendar.DATE, 7);
 
             //  Preference에 설정한 값 저장
@@ -88,4 +87,3 @@ public class AlarmReceiver extends BroadcastReceiver {
         }
     }
 }
-
